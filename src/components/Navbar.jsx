@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navbar({ tab, setTab }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
 
   function selectTab(value) {
     setTab(value);
     setMenuOpen(false);
   }
   return (
-    <header className="w-full border-b border-white/10 bg-black/20 backdrop-blur-lg">
+    <header className="w-full border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-black/20 backdrop-blur-lg">
       <div className="max-w-[1180px] mx-auto px-6 py-4 flex items-center justify-between">
         <span className="text-xl font-bold tracking-tight text-white">
           Movie<span className="text-brand-500">Find</span>
@@ -34,10 +39,16 @@ function Navbar({ tab, setTab }) {
           >
             Favorites
           </button>
+          <button
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/10 text-neutral-900 dark:text-white cursor-pointer"
+            onClick={() => setIsDark((prev) => !prev)}
+          >
+            {isDark ? "☀️" : "🌙"}
+          </button>
         </nav>
         <button
-        className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/10 text-white cursor-pointer"
-        onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/10 text-white cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? "✕" : "☰"}
         </button>
@@ -46,7 +57,7 @@ function Navbar({ tab, setTab }) {
         <div className="md:hidden flex flex-col gap-1 px-6 pb-4">
           <button
             className={`text-left py-2 text-sm font-semibold transition-colors cursor-pointer ${
-              tab === "all" 
+              tab === "all"
                 ? "text-brand-500"
                 : "text-white/70 hover:text-white"
             }`}
@@ -63,6 +74,12 @@ function Navbar({ tab, setTab }) {
             onClick={() => selectTab("favorites")}
           >
             Favorites
+          </button>
+          <button
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/10 text-neutral-900 dark:text-white cursor-pointer"
+            onClick={() => setIsDark((prev) => !prev)}
+          >
+            {isDark ? "☀️" : "🌙"}
           </button>
         </div>
       )}

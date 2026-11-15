@@ -4,6 +4,7 @@ import MovieCard from "./components/MovieCard";
 import useDebounce from "./hooks/useDebounce";
 import useLocalStorage from "./hooks/useLocalStorage";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const API_KEY = "1eb1bb12";
 
@@ -76,7 +77,7 @@ function App() {
             onChange={(event) => setQuery(event.target.value)}
           />
           {tab === "favorites" ? (
-            <div className="grid grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
               {favorites.map((movie) => (
                 <MovieCard
                   movie={movie}
@@ -91,7 +92,7 @@ function App() {
           ) : error ? (
             <p className="text-center text-white/75 text-lg mt-8">{error}</p>
           ) : (
-            <div className="grid grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
               {movies.map((movie) => (
                 <MovieCard
                   key={movie.imdbID}
@@ -106,6 +107,7 @@ function App() {
           )}
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
