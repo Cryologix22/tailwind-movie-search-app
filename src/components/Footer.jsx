@@ -1,6 +1,5 @@
 function Footer() {
   return (
-    <footer>
       <footer className="w-full border-t border-black/10 dark:border-white/10">
         <div className="max-w-[1180px] mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500 dark:text-white/60">
           <span className="font-semibold text-neutral-700 dark:text-white/80">
@@ -26,10 +25,9 @@ function Footer() {
               Contact
             </a>
           </div>
-          <span>© 2026 MovieFind</span>
+          <span>© {new Date().getFullYear()} MovieFind</span>
         </div>
       </footer>
-    </footer>
   );
 }
 

@@ -15,7 +15,7 @@ function Navbar({ tab, setTab }) {
   return (
     <header className="w-full border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-black/20 backdrop-blur-lg">
       <div className="max-w-[1180px] mx-auto px-6 py-4 flex items-center justify-between">
-        <span className="text-xl font-bold tracking-tight text-white">
+        <span className="text-xl font-bold tracking-tight text-neutral-900 dark:text-white">
           Movie<span className="text-brand-500">Find</span>
         </span>
         <nav className="hidden md:flex items-center gap-8">
@@ -23,7 +23,7 @@ function Navbar({ tab, setTab }) {
             className={`text-sm font-semibold transition-colors cursor-pointer ${
               tab === "all"
                 ? "text-brand-500"
-                : "text-white/70 hover:text-white"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-white/70 dark:hover:text-white"
             }`}
             onClick={() => selectTab("all")}
           >
@@ -33,7 +33,7 @@ function Navbar({ tab, setTab }) {
             className={`text-left py-2 text-sm font-semibold transition-colors cursor-pointer ${
               tab === "favorites"
                 ? "text-brand-500"
-                : "text-white/70 hover:text-white"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-white/70 dark:hover:text-white"
             }`}
             onClick={() => selectTab("favorites")}
           >
@@ -47,7 +47,7 @@ function Navbar({ tab, setTab }) {
           </button>
         </nav>
         <button
-          className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/10 text-white cursor-pointer"
+          className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/10 text-neutral-900 dark:text-white cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? "✕" : "☰"}
@@ -59,7 +59,7 @@ function Navbar({ tab, setTab }) {
             className={`text-left py-2 text-sm font-semibold transition-colors cursor-pointer ${
               tab === "all"
                 ? "text-brand-500"
-                : "text-white/70 hover:text-white"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-white/70 dark:hover:text-white"
             }`}
             onClick={() => selectTab("all")}
           >
@@ -69,7 +69,7 @@ function Navbar({ tab, setTab }) {
             className={`text-left py-2 text-sm font-semibold transition-colors cursor-pointer ${
               tab === "favorites"
                 ? "text-brand-500"
-                : "text-white/70 hover:text-white"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-white/70 dark:hover:text-white"
             }`}
             onClick={() => selectTab("favorites")}
           >
